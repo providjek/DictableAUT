@@ -62,8 +62,7 @@ public class InitPage extends Page {
 
 
     public void fillInitProfilForm(String pseudo, String fname, String lname, String genre, String language, String level, String country) throws InterruptedException {
-        this.pseudo.clear();
-
+        super.waitVisibility(this.pseudo);
         clearInputText(this.pseudo);
         super.writeText(this.pseudo,pseudo);
         super.writeText(this.fname, fname);
@@ -87,6 +86,7 @@ public class InitPage extends Page {
         clearInputText(this.country);
         super.writeText(this.country, country);
         this.country.sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
         this.clickOnSubmtBtn();
     }
     public void goToMainProfile(){
